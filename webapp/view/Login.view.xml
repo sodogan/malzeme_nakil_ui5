@@ -1,0 +1,28 @@
+<mvc:View controllerName="com.bozankaya.ZBZ_MALZEME_NAKIL.controller.Login" 
+		  xmlns:html="http://www.w3.org/1999/xhtml" 
+		  xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page id="LoginPageID" title="{}" backgroundDesign="Transparent" busy="{loginView>/busy}">
+				<content>
+					<Panel width="auto" class="sapUiResponsiveMargin" >
+						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+							<Image src="{i18n>grebo_logo}" width="100%"/>
+						</VBox>
+						<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center">
+							<Input liveChange="loginLiveChange" maxLength="8" showSuggestion="true" showValueHelp="true" valueHelpRequest="onPressUserDialog"
+								placeholder="{i18n>pernr}" id="pernr" width="16rem" valueStateText="{i18n>valueStateTextprnr}" submit="onLoginBtn"></Input>
+							<Input id="password" placeholder="{i18n>password}" width="16rem" required="true" type="Password" liveChange="loginLiveChange"
+								valueStateText="{i18n>valueStateTextpassword}" submit="onLoginBtn"></Input>
+							<Button text="{i18n>loginText}" type="Emphasized" press="onLoginBtn" width="16rem"></Button>
+						</VBox>
+					</Panel>
+					<!--<Panel width="auto" class="sapUiResponsiveMargin">-->
+					<MessageStrip id="loginWarningMsg" text="{i18n>loginWarningMsg}" type="Warning" showIcon="true" showCloseButton="true"
+						class="sapUiMediumMarginBottom" visible="false"></MessageStrip>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

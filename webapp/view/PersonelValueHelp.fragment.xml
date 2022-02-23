@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="personelVHDialog" contentWidth="30rem" title="{i18n>personelVHTx}" afterClose="onDialogAfterClose">
+		<Table id="personelVHTable" 
+		items="{ path: '/personelSet'}" 
+		growing="true" 
+		growingScrollToLoad="true"
+		noDataText="{i18n>noDataText}">
+			<headerToolbar>
+				<Toolbar>
+					<ToolbarSpacer/>
+					<SearchField id="personelSearchField"
+					placeholder="{i18n>searchByPersonels}" 
+					search="onPersonelTableSearch"/>
+				</Toolbar>
+			</headerToolbar>
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>pernrText}"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="{i18n>enameText}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active" press="onPersonelItemSelect">
+					<cells>
+						<Text text="{= parseFloat(${Pernr})}"/>
+						<Text text="{Ename}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<beginButton>
+			<Button text="{i18n>closeBtn}" press="onCloseDialog" icon="sap-icon://decline"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

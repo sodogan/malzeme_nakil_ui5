@@ -1,0 +1,112 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+	controllerName="com.bozankaya.ZBZ_MALZEME_NAKIL.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="" showNavButton="true" navButtonPress="onNavBack">
+				<Panel headerText="">
+					<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" columnsL="1" columnsM="1"
+						singleContainerFullSize="false">
+						<f:toolbar>
+							<Toolbar id="TB1">
+								<Button icon="sap-icon://shipping-status" press="onNakil"/>
+								<Button icon="sap-icon://save" press="onSave" enabled= "{detailView>/enabled}"/>
+								<Button icon="sap-icon://delete" press="onDelete"/>
+								<Button icon="sap-icon://undo" press="onReverse"/>
+								<Button icon="sap-icon://print" press="onPrint"/>
+								<Button icon="sap-icon://bar-code" press="onBarcode"/>
+								<!--<Button icon="sap-icon://collections-management" press="onMiktarDegistir" />-->
+							</Toolbar>
+						</f:toolbar>
+						<f:content>
+							<Label text="Form"/>
+							<Text text="{Header>/Formno}"/>
+							<Label text="Rezervasyon"/>
+							<Text text="{Header>/Rsnum}"/>
+							<Label text="Kaynak Depo"/>
+							<Text text="{Header>/LgortK}"/>
+							<Label text="Hedef Depo"/>
+							<Text text="{Header>/Lgort}"/>
+							<Label text="Malzeme Kodu"/>
+							<Text text="{Header>/MatnrS}"/>
+							<Label text="Aciliyet"/>
+							<CheckBox id="acilyetCb" editable="{statuModel>/superKul}" selected="{Header>/Aciliyet}" select="onSelectAciliyet"/>
+							
+							<Label text="Toplam Rezervasyon Miktarı"></Label>
+							<Text text="{Header>/RpsmngTmp}"/>
+							<!--oAkalan-->
+							<Label text="Güncel Rezervasyon Miktarı"></Label>
+							<Text text="{Header>/RpsmngGncl}"/>
+							<!--oAkalan-->
+							<Label text="Miktar Değiştir"/>
+							<HBox>
+								<Input id="rpsmngInput" value="{Header>/Rpsmng}" width="10rem" type="Number" submit="onSubmitRpsmng"/>
+								<Button icon="sap-icon://simulate" type="Emphasized" width="1rem" press="onSubmitRpsmng"></Button>
+							</HBox>
+						</f:content>
+					</f:SimpleForm>
+					<!--<headerToolbar>-->
+					<!--	<OverflowToolbar height="3rem">-->
+					<!--		<Text text="Form"/>-->
+					<!--		<Text text="{Header>/Formno}"/>-->
+					<!--	</OverflowToolbar>-->
+					<!--	<OverflowToolbar height="3rem">-->
+					<!--		<Text text="Rezervasyon"/>-->
+					<!--		<Text text="{Header>/Rsnum}"/>-->
+					<!--	</OverflowToolbar>-->
+					<!--	<OverflowToolbar height="3rem">-->
+					<!--		<Text text="Hedef Depo"/>-->
+					<!--		<Text text="{Header>/Lgort}"/>-->
+					<!--	</OverflowToolbar>-->
+					<!--</headerToolbar>-->
+					<!--<f:SimpleForm id="S1" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12"-->
+					<!--	adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"-->
+					<!--	singleContainerFullSize="false">-->
+					<!--	<f:content>-->
+					<!--		<Label text="Form Numarası"/>-->
+					<!--		<Text text="{Header>/Formno}" id="form"/>-->
+					<!--<Label text="Malzeme Numarası"/>-->
+					<!--<Input value="" id="mlz"></Input>-->
+					<!--<Button press="onClick" text="Kaydet"></Button>-->
+					<!--	</f:content>-->
+					<!--</f:SimpleForm>-->
+				</Panel>
+				<Panel>
+					<List headerText="" items="{Item>/results}">
+						<CustomListItem>
+							<HBox>
+								<FlexBox direction="Column" alignItems="Start">
+									<items class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+										<Label text="{Item>Matnr} - {Item>Maktx}"></Label>
+										<FlexBox alignItems="Start">
+											<items class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+												<Input value="{Item>Ismik}" description="{Item>Meins}" width="10rem" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+													<layoutData>
+														<FlexItemData order="1"/>
+													</layoutData>
+												</Input>
+												<Label text="{Item>MengeK} - {Item>MeinsK}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" vAlign="Middle">
+													<layoutData>
+														<FlexItemData order="2"/>
+													</layoutData>
+												</Label>
+												<Label text="Depo Adresi : {Item>Lgpbe}" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" vAlign="Middle">
+													<layoutData>
+														<FlexItemData order="3"/>
+													</layoutData>
+												</Label>
+											</items>
+										</FlexBox>
+									</items>
+								</FlexBox>
+								<!--<Vbox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">-->
+								<!--	<Label text="{Item>Matnr} - {Item>Maktx}"></Label>-->
+								<!--	<Input value="{Item>Ismik}" description="{Item>Meins}" width="10rem"></Input>-->
+								<!--</Vbox>-->
+							</HBox>
+						</CustomListItem>
+					</List>
+				</Panel>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

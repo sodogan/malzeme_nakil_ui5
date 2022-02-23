@@ -1,0 +1,201 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "com.bozankaya.ZBZ_MALZEME_NAKIL",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZBZ_MALZEME_NAKIL_SRV": {
+				"uri": "/sap/opu/odata/sap/ZBZ_MALZEME_NAKIL_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZBZ_MALZEME_NAKIL_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "com.bozankaya.ZBZ_MALZEME_NAKIL.view.Login",
+			"type": "XML",
+			"async": true,
+			"id": "Login"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.bozankaya.ZBZ_MALZEME_NAKIL.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": false
+				},
+				"dataSource": "ZBZ_MALZEME_NAKIL_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.bozankaya.ZBZ_MALZEME_NAKIL.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "TargetLogin",
+					"pattern": "RouteLogin",
+					"target": [
+						"TargetLogin"
+					]
+				},
+				{
+					"name": "Menu",
+					"pattern": "Menu",
+					"titleTarget": "Menu",
+					"greedy": false,
+					"target": [
+						"Menu"
+					]
+				},
+				{
+					"name": "Detail",
+					"pattern": "Detail",
+					"titleTarget": "Detail",
+					"greedy": false,
+					"target": [
+						"Detail"
+					]
+				},
+				{
+					"name": "FormList",
+					"pattern": "FormList",
+					"titleTarget": "FormList",
+					"greedy": false,
+					"target": [
+						"FormList"
+					]
+				},
+				{
+					"name": "KaynakTeyit",
+					"pattern": "KaynakTeyit",
+					"titleTarget": "KaynakTeyit",
+					"greedy": false,
+					"target": [
+						"KaynakTeyit"
+					]
+				},
+				{
+					"name": "TesviyeTeyit",
+					"pattern": "TesviyeTeyit",
+					"titleTarget": "TesviyeTeyit",
+					"greedy": false,
+					"target": [
+						"TesviyeTeyit"
+					]
+				},
+				{
+					"name": "Montaj",
+					"pattern": "Montaj",
+					"titleTarget": "Montaj",
+					"greedy": false,
+					"target": [
+						"Montaj"
+					]
+				}
+			],
+			"targets": {
+				"TargetLogin": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Login",
+					"viewName": "Login"
+				},
+				"Menu": {
+					"viewType": "XML",
+					"viewName": "Menu"
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail"
+				},
+				"FormList": {
+					"viewType": "XML",
+					"viewName": "FormList"
+				},
+				"KaynakTeyit": {
+					"viewType": "XML",
+					"viewName": "KaynakTeyit"
+				},
+				"TesviyeTeyit": {
+					"viewType": "XML",
+					"viewName": "TesviyeTeyit"
+				},
+				"Montaj": {
+					"viewType": "XML",
+					"viewName": "Montaj"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zbz_malzeme_nkl",
+		"_version": "1.1.0"
+	}
+}

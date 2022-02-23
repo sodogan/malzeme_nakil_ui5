@@ -1,0 +1,66 @@
+<mvc:View controllerName="com.bozankaya.ZBZ_MALZEME_NAKIL.controller.Menu" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page">
+					<content>
+						<!--	<Panel width="auto" class="sapUiResponsiveMargin" >-->
+						<!--<VBox fitContainer="true" justifyContent="Center" alignItems="Center" alignContent="Center" >-->
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>Bt1}" subheader="{}" press="onReadBarcode"
+							state="{path:'Yetki>/NklYetki', formatter: '.formatter.yetkiVarmi' }">
+							<tileContent>
+								<TileContent>
+									<content>
+										<ImageContent src="sap-icon://bar-code"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>Bt2}" subheader="{}" press="onDisplayList"
+							state="{path:'Yetki>/NklYetki', formatter: '.formatter.yetkiVarmi' }">
+							<tileContent>
+								<TileContent>
+									<content>
+										<ImageContent src="sap-icon://activity-items"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>Bt3}" subheader="{}" press="onPressKaynakTeyit"
+							state="{path:'Yetki>/KynkYetki', formatter: '.formatter.yetkiVarmi' }">
+							<tileContent>
+								<TileContent>
+									<content>
+										<ImageContent src="sap-icon://database"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>Bt4}" subheader="{}" press="onPressTesviyeTeyit"
+							state="{path:'Yetki>/TesYetki', formatter: '.formatter.yetkiVarmi' }">
+							<tileContent>
+								<TileContent>
+									<content>
+										<ImageContent src="sap-icon://initiative"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="{i18n>Bt5}" subheader="{}" press="onPressMontaj"
+							state="{path:'Yetki>/MonYetki', formatter: '.formatter.yetkiVarmi' }">
+							<tileContent>
+								<TileContent>
+									<content>
+										<ImageContent src="sap-icon://wrench"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<!--</VBox>-->
+						<!--</Panel>-->
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

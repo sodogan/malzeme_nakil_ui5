@@ -1,0 +1,71 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.bozankaya.ZBZ_MALZEME_NAKIL.controller.KaynakTeyit" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page showNavButton="true" navButtonPress="onNavBack">
+				<!--<Bar id="headerBar">-->
+				<!--<contentMiddle>-->
+				<!--	<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"-->
+				<!--		search="onSearch" placeholder="{i18n>masterSearchPh}"></SearchField>-->
+				<!--</contentMiddle>-->
+				<!--</Bar>-->
+				<Table id="teyitKaynakTbl" inset="false" items="{/TeyitSet}" growing="true" growingThreshold="70" growingScrollToLoad="false">
+					<columns>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text="Form"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text="Durum"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="auto">
+							<Text text="Malzeme Numarası"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="auto">
+							<Text text="Hedef Depo"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="auto">
+							<Text text="Toplam Süre ({HeaderK>/ToplamSure})"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="auto">
+							<Text text="Nakil Edilmiş Miktar"/>
+						</Column>
+						<Column minScreenWidth="Tablet" demandPopin="true" width="8rem">
+							<Text text="İşlem Miktarı"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text=""/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text="Kalan Süre ({HeaderK>/KalanSure})"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text="Kalan Miktar ({HeaderK>/ToplamKalan})"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto">
+							<Text text="Teyit"/>
+						</Column>
+					</columns>
+					<items >
+						<ColumnListItem selected="onSelectionChange">
+							<cells>
+								<ObjectIdentifier text="{= parseFloat(${Formno})}"/>
+								<ObjectStatus text="ACİL" state="Error" icon="sap-icon://error" visible="{Aciliyet}"/>
+								<Text text="{Plnbez}"></Text>
+								<Text text="{Lgort}"></Text>
+								<Text text="{path:'Toplamsure', type:'sap.ui.model.odata.type.String', constraints: {isDigitSequence: true}} dk" />
+								<Text text="{ path: 'Npsmng', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3,maxFractionDigits: 3 } }"/>
+								<StepInput xmlns:core="sap.ui.core" core:require="{ 'FloatType': 'sap/ui/model/type/Float' }" textAlign="Center" displayValuePrecision="3"
+									validationMode="LiveChange" step="1" min="0" max="9999999999.999"
+									value="{ path: 'Ismik', type: 'FloatType', constraints: { minimum: 0, maximum: 9999999999.999 } }"/>
+								<Text text=""/>
+								<Text text="{path:'Kalansure', type:'sap.ui.model.odata.type.String', constraints: {isDigitSequence: true}} dk" />
+								<Text text="{ path: 'KynkMik', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 3,maxFractionDigits: 3 } }"/>
+								<Button icon="sap-icon://action" type="Emphasized" press="onPressTeyitBtn"></Button>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="BarcodeInputId" contentWidth="20rem" title="Barkod Numarası" afterClose="onDialogAfterClose">
+		<Input id="Barcode" maxLength="7" liveChange="onChangeBarcodeInput" />
+		<!--change="onChangeBarcodeInput"-->
+		<beginButton>
+			<Button text="{i18n>closeTxt}" press="onCloseBarcodeInputDialog" icon="sap-icon://decline"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

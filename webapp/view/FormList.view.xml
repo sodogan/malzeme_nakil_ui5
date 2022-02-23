@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="com.bozankaya.ZBZ_MALZEME_NAKIL.controller.FormList" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="GREBO Form Numaraları" showNavButton="true" navButtonPress="onNavBack">
+				<Bar id="headerBar">
+					<contentMiddle>
+						<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
+							search="onSearch" placeholder="{i18n>masterSearchPh}"></SearchField>
+					</contentMiddle>
+				</Bar>
+				<!--<List id="list" items="{ path: '/FormnoListSet', sorter: { path: 'Formno', ascending: true }, groupHeaderFactory: '.createGroupHeader' }"-->
+				<!--	mode="SingleSelectMaster" growing="true" growingScrollToLoad="true" selectionChange="onSelectionChange">-->
+				<!--	<items>-->
+				<!--		<ObjectListItem id="masterObjListItem" type="Active" title="{= parseFloat(${Formno})}">-->
+				<!--			<firstStatus>-->
+				<!--				<ObjectStatus state="{ path: 'Durum', formatter: '.formatter.convertDurumToState' }"-->
+				<!--					icon="{ path: 'Durum', formatter: '.formatter.convertDurumToIcon' }"/>-->
+				<!--			</firstStatus>-->
+				<!--		</ObjectListItem>-->
+				<!--	</items>-->
+				<!--</List>-->
+				<!--<Table id="idProductsTable" mode="SingleSelectMaster" selectionChange="onSelectionChange" inset="false" items="{ path: '/FormnoListSet' }">-->
+				<Table id="idProductsTable" mode="SingleSelectMaster" select="onSelectionChange"  items="{List>/results}" width="100%"
+					class="sapUiNoContentPadding">
+					<columns>
+						<Column minScreenWidth="Phone" width="4rem">
+							<Text text="Form"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="auto" hAlign="Center">
+							<Text text="Mal. No"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="5rem" hAlign="Center">
+							<Text text="Hdf. Depo"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="5rem" hAlign="Center">
+							<Text text="Tpl. Mik"/>
+						</Column>
+						<Column minScreenWidth="Phone" width="3rem" hAlign="Center">
+							<Text text="Drm"/>
+						</Column>
+						<Column minScreenWidth="Phone" demandPopin="true" width="3rem" hAlign="Center">
+							<Text text="Acl"/>
+						</Column>
+					</columns>
+					<items >
+						<ColumnListItem selected="onSelectionChange">
+							<cells>
+								<ObjectIdentifier text="{= parseFloat(${List>Formno})}"/>
+								<Text text="{List>Matnr}"/>
+								<Text text="{List>Lgort}"></Text>
+								<Text text="{path:'List>Menge', type: 'sap.ui.model.type.Float', formatOptions: { minFractionDigits: 2, maxFractionDigits: 2}}"/>
+								<ObjectStatus state="{ path: 'List>Durum', formatter: '.formatter.convertDurumToState' }"
+									icon="{ path: 'List>Durum', formatter: '.formatter.convertDurumToIcon' }"/>
+								<!--<ObjectStatus state="{ path: 'List>Aciliyet', formatter: '.formatter.convAciliyetToState' }" icon="sap-icon://message-error"/>-->
+								<ObjectStatus text="ACİL" state="Error" icon="sap-icon://error" visible="{List>Aciliyet}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
