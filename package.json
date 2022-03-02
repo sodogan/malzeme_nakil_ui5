@@ -1,0 +1,39 @@
+{
+  "name": "zbz_malzeme_nkl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "fiori run --open 'test/flpSandbox.html?sap-client=111#combozankayaZBZ_MALZEME_NAKIL-display'",
+    "start-local": "fiori run --config ./ui5-local.yaml --open 'test/flpSandbox.html?sap-client=111#combozankayaZBZ_MALZEME_NAKIL-display'",
+    "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+    "deploy": "fiori verify",
+    "deploy-config": "fiori add deploy-config",
+    "start-noflp": "fiori run --open 'index.html?sap-client=111'",
+    "start-mock": "fiori run --open 'test/flpSandboxMockServer.html?sap-client=111#combozankayaZBZ_MALZEME_NAKIL-display'",
+    "start-variants-management": "fiori run --open \"preview.html?fiori-tools-rta-mode=true&sap-ui-rta-skip-flex-validation=true&sap-client=111#preview-app\"",
+    "unit-tests": "fiori run --open test/unit/unitTests.qunit.html",
+    "int-tests": "fiori run --open test/integration/opaTests.qunit.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sodogan/malzeme_nakil_ui5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sodogan/malzeme_nakil_ui5/issues"
+  },
+  "homepage": "https://github.com/sodogan/malzeme_nakil_ui5#readme",
+  "devDependencies": {
+    "@ui5/cli": "^2.14.1",
+    "@sap/ux-ui5-tooling": "1"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ux-ui5-tooling"
+    ]
+  },
+  "sapuxLayer": "CUSTOMER_BASE"
+}

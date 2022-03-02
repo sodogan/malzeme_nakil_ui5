@@ -1,5 +1,5 @@
 sap.ui.define([
-	"com/bozankaya/ZBZ_MALZEME_NAKIL/test/unit/controller/Login.controller"
+	"comsodogan./test/test/unit/controller/App.controller"
 ], function () {
 	"use strict";
 });

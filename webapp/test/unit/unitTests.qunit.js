@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"com/bozankaya/ZBZ_MALZEME_NAKIL/test/unit/AllTests"
+		"comsodogan./test/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});
